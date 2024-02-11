@@ -12,6 +12,7 @@ if [ -f $FILENAME ]; then
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         rm $FILENAME
+        echo -en "\n"
     else
         echo "====================================="
         echo "| The script will now be terminated |"
@@ -28,7 +29,6 @@ if ! wget -q --spider --no-check-certificate $LINK; then
     exit 1
 fi
 
-echo -en "\n"
 echo "==============================================="
 echo "| Start to download DE sender list for DVB-T2 |"
 echo "| from picockpit.com and save it as $FILENAME  |"
