@@ -1,4 +1,14 @@
 #!/bin/bash
+
+# Author: Siegfried Kienzle
+# Email: sikienzl.github at t-online.de
+# Date: 2024-02-11
+# Version: 1.0
+# License: MIT
+# Description: This script is used to download the Raspbian Buster image
+# and check the integrity of the image and the check sum.
+# Usage: bash download_buster.sh
+
 IMAGELINK="https://downloads.raspberrypi.org/raspbian/images/raspbian-2020-02-14/2020-02-13-raspbian-buster.zip"
 CHECKSUM="https://downloads.raspberrypi.org/raspbian/images/raspbian-2020-02-14/2020-02-13-raspbian-buster.zip.sha256"
 FILENAME="2020-02-13-raspbian-buster.zip"

@@ -1,4 +1,14 @@
 #!/bin/bash
+
+# Author: Siegfried Kienzle
+# Email: sikienzl.github at t-online.de
+# Date: 2024-02-11
+# Version: 1.0
+# License: MIT
+# Description: This script is used to get the DE sender list for DVB-T2
+# from picockpit.com and save it to a file.
+# Usage: bash get_DE_DVB-T2_senderlist.sh 
+
 FILENAME="de-DVBT2"
 LINK="https://picockpit.com/raspberry-pi/wp-content/uploads/2022/10/aa-All.txt"
 
