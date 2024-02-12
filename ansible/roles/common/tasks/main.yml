@@ -1,4 +1,8 @@
 ---
+- name: Update apt cache
+  apt:
+    update_cache: yes
+  tags: update
 
 - name: Check if ntp is installed
   apt:
@@ -20,3 +24,23 @@
     state: started
     enabled: yes
   tags: ntp
+
+- name: Install package vim
+  apt:
+    name: vim
+  tags: vim
+
+- name: Install package byobu
+  apt:
+    name: byobu
+  tags: byobu
+
+- name: Install package htop
+  apt:
+    name: htop
+  tags: htop
+
+- name: Install package wget
+  apt:
+    name: wget
+  tags: wget

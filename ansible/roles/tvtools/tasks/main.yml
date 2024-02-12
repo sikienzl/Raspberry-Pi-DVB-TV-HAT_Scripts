@@ -1,0 +1,57 @@
+---
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+  tags: update
+
+- name: Install dvb-apps
+  apt:
+    name: dvb-apps
+  tags: dvb-apps
+
+- name: Install tvheadend
+  apt:
+    name: tvheadend
+    state: present
+  tags: tvheadend
+
+- name: Download DVB-T2 for Germany
+  asnible.builtin.get_url:
+    url: https://picockpit.com/raspberry-pi/wp-content/uploads/2022/10/aa-All.txt
+    dest: /usr/share/dvb/dvb-t/de-DVBT2
+    dest: /usr/share/tvheadend/data/dvb-scan/dvb-t/de-DVBT2
+    checksum: sha256:1a9173574e51a09139e9af312c61377df7b29ad828c925342d842914abba2c74
+  tags: download_dvb-t2_germany
+
+- name: Stop tvheadend
+  ansible.builtin.service:
+    name: tvheadend
+    state: stopped
+  tags: tvheadend_stop
+
+- name: Start tvheadend
+  ansible.builtin.service:
+    name: tvheadend
+    state: started
+  tags: tvheadend_start
+
+- name: Check if tvheadend port is up
+  wait_for:
+    port: 9981
+    delay: 10
+    timeout: 200
+    msg: "HTTP Timeout on port 9981. No response"
+  register: port_check
+
+- name: Wait till tvheadend is up
+  uri:
+    url: "http://raspberrypi.local:9981/extjs.html"
+    return_content: yes
+    validate_certs: no
+    status_code:
+      - 200
+  register: website_health_check
+  until: uri_output.status == 200
+  retries: 20
+  delay: 10
