@@ -25,22 +25,13 @@
     enabled: yes
   tags: ntp
 
-- name: Install package vim
+- name: Install common packages
   apt:
-    name: vim
-  tags: vim
-
-- name: Install package byobu
-  apt:
-    name: byobu
-  tags: byobu
-
-- name: Install package htop
-  apt:
-    name: htop
-  tags: htop
-
-- name: Install package wget
-  apt:
-    name: wget
-  tags: wget
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - vim
+    - byobu
+    - htop
+    - wget
+  tags: common_packages

@@ -5,16 +5,14 @@
     update_cache: yes
   tags: update
 
-- name: Install dvb-apps
+- name: Install dvb-tools
   apt:
-    name: dvb-apps
-  tags: dvb-apps
-
-- name: Install tvheadend
-  apt:
-    name: tvheadend
-    state: present
-  tags: tvheadend
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - dvb-apps
+    - tvheadend
+  tags: install_dvb-tools
 
 - name: Download DVB-T2 for Germany
   asnible.builtin.get_url:
