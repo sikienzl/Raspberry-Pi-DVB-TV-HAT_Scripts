@@ -33,5 +33,13 @@
     - vim
     - byobu
     - htop
+    - neofetch
     - wget
   tags: common_packages
+
+- name: Copy neofetch.sh to remote
+  ansible.builtin.copy:
+    src: neofetch.sh
+    dest: /etc/profile.d/
+    owner: root
+    mode: '0644'
