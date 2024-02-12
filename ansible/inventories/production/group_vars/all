@@ -2,3 +2,5 @@ ntpserver0: ntp1.uni-ulm.de
 ntpserver1: ntp2.uni-ulm.de
 ntpserver2: de.pool.ntp.org	
 ntpserver3: ntp1.t-online.de
+
+tvheadend-port: 9981

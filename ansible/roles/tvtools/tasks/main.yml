@@ -36,7 +36,7 @@
 
 - name: Check if tvheadend port is up
   wait_for:
-    port: 9981
+    port: "{{ tvheadend-port }}"
     delay: 10
     timeout: 200
     msg: "HTTP Timeout on port 9981. No response"
