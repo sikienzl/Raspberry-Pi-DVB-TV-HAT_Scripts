@@ -9,10 +9,10 @@
 # and check the integrity of the image and the check sum.
 # Usage: bash download_buster.sh
 
-IMAGELINK="https://downloads.raspberrypi.org/raspbian/images/raspbian-2020-02-14/2020-02-13-raspbian-buster.zip"
-CHECKSUM="https://downloads.raspberrypi.org/raspbian/images/raspbian-2020-02-14/2020-02-13-raspbian-buster.zip.sha256"
-FILENAME="2020-02-13-raspbian-buster.zip"
-CHECKSUMFILE="2020-02-13-raspbian-buster.zip.sha256"
+IMAGELINK="https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2021-05-28/2021-05-07-raspios-buster-arm64-lite.zip"
+CHECKSUM="https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2021-05-28/2021-05-07-raspios-buster-arm64-lite.zip.sha256"
+FILENAME="2021-05-07-raspios-buster-arm64-lite.zip"
+CHECKSUMFILE="2021-05-07-raspios-buster-arm64-lite.zip.sha256"
 
 # Test if the file exists
 if [ -f $FILENAME ]; then
@@ -42,18 +42,18 @@ if ! wget -q --spider --no-check-certificate $IMAGELINK; then
 fi
 
 
-echo "======================================================================="
-echo "| Start to download the check sum for the                             |"
+echo "================================================================================="
+echo "| Start to download the check sum for the                                       |"
 echo "| Raspbian Buster image and save it as $FILENAME |"
-echo "======================================================================="
+echo "================================================================================="
 
 wget $CHECKSUM -q --show-progress --no-check-certificate
 
 echo -en "\n"
-echo "================================================="
-echo "| Start to download the Raspbian Buster image   |"
+echo "==========================================================="
+echo "| Start to download the Raspbian Buster image             |"
 echo "| and save it as $FILENAME |"
-echo "================================================="
+echo "==========================================================="
 wget -O $FILENAME $IMAGELINK -q --show-progress --no-check-certificate
 
 echo -en "\n"
