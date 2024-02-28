@@ -16,7 +16,7 @@ echo "=============================="
 echo "| Start to setup the SD card |"
 echo "=============================="
 # Format the SD card
-sh ./utils/format-sdcard.sh $SDCARDDEVICE
+/bin/bash ./utils/format-sdcard.sh "$SDCARDDEVICE"
 
 # Write the image to the SD card
-dd if=$IMAGE of=$SDCARDDEVICE bs=4M status=progress conv=fsync
+sudo dd if="$IMAGE" of="/dev/$SDCARDDEVICE" bs=4M status=progress conv=fsync
